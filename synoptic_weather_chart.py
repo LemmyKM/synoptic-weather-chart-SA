@@ -17,7 +17,7 @@ def send_email():
             attachment.read(), maintype='image', subtype='gif')
 
     context = ssl.create_default_context() 
-    with smtplib.SMTP('<your SMTP server address', 587) as server:
+    with smtplib.SMTP('<your SMTP server address', 'server port>') as server:
         server.ehlo()
         server.starttls(context=context) 
         server.login('<login address for your email account>', '<password for your email account>')
