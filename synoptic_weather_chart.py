@@ -6,8 +6,8 @@ from email.message import EmailMessage
 def send_email():
     message = EmailMessage()
 
-    message["From"] = '<your email address>'
-    message["To"] =  '<your email address>'
+    message["From"] = 'your email address'
+    message["To"] =  'your email address'
     message["Subject"] = 'Synoptic Chart SA'
 
     message.set_content("Latest synoptic chart as attachment.")
@@ -17,10 +17,10 @@ def send_email():
             attachment.read(), maintype='image', subtype='gif')
 
     context = ssl.create_default_context() 
-    with smtplib.SMTP('<your SMTP server address', 'server port>') as server:
+    with smtplib.SMTP('your SMTP server address', 'server port') as server:
         server.ehlo()
         server.starttls(context=context) 
-        server.login('<login address for your email account>', '<password for your email account>')
+        server.login('login address for your email account', 'password for your email account')
         server.send_message(message)
 
 
